@@ -1,0 +1,16 @@
+services:
+  go-postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    volumes: 
+      - ./go-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+
+volumes:
+  go-data:
+    name: go-data-volume 
